@@ -2,8 +2,8 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route('/')
-def hello_world():
+@app.route('/', methods=('GET', 'POST'))
+def display_homepage():
     return render_template('index.html')
 
 
