@@ -1,16 +1,14 @@
 import os
 import shutil
-import html2text
+from newspaper import Article
 import constant
-from urllib.request import urlopen
 
 
 def download_webpage(uuid, url):
-    webpage = urlopen(url)
-    html_content = webpage.read()
-    content_txt = html2text.html2text(html_content)
+    article = Article(url)
+    article.download()
     file = open(constant.FILE_DIR + uuid + '.txt', 'w')
-    file.write(content_txt)
+    file.write(article.text)
     file.close()
 
 

@@ -24,11 +24,7 @@ def train_model(dataset):
     x = df['text']
     y = labels
 
-    #Initialize a TfidfVectorizer
-    tfidf_vectorizer = TfidfVectorizer(stop_words='english', max_df=0.7)
-
-    #Fit and transform train set, transform test set
-    tfidf_train = tfidf_vectorizer.fit_transform(x)
+    tfidf_train = fit_vectorizer(x)
 
     #Initialize a PassiveAggressiveClassifier
     pac = PassiveAggressiveClassifier(max_iter=50)
@@ -36,3 +32,10 @@ def train_model(dataset):
 
     finalized_model = constant.MODEL_DIR + constant.MODEL_NAME
     pickle.dump(pac, open(finalized_model, 'wb'))
+
+def fit_vectorizer(x):
+    # Initialize a TfidfVectorizer
+    tfidf_vectorizer = TfidfVectorizer(stop_words='english', max_df=0.7)
+
+    # Fit and transform train set, transform test set
+    return tfidf_vectorizer.fit_transform(x)

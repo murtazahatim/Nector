@@ -1,6 +1,16 @@
 {% extends 'navbar.html' %}
 
 {% block body %}
+
+<style>
+    .content_body {
+        width: 500px;
+        margin: auto;
+        content-align: center;
+        padding-top: 250px;
+    }
+</style>
+
 <div class="content_body">
 <form class="check_news_form" action="{{url_for('check_authenticity', uuid = uuid)}}" method="POST">
     <div class="mdl-textfield mdl-js-textfield">

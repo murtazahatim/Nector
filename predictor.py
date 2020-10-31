@@ -8,7 +8,7 @@ from machine_learning_model.trainer import train_model
 def authenticity_predictor(uuid, url):
     download_webpage(uuid, url)
     file = open(constant.FILE_DIR + uuid + '.txt')
-    news_txt = file.read.replace("\n", " ")
+    news_txt = file.read().replace("\n", " ")
     return predict(news_txt)
 
 
@@ -17,6 +17,7 @@ def predict(news_txt):
     if not file_exists(constant.MODEL_DIR + constant.MODEL_NAME):
         train_model(constant.DATASET_DIR + 'news.csv')
     prediction_model = load_model(constant.MODEL_NAME)
+
     tfidf_vectorizer = TfidfVectorizer(stop_words='english', max_df=0.7)
     tfidf_predict = tfidf_vectorizer.transform([news_txt])
     y_pred = prediction_model.predict(tfidf_predict)
