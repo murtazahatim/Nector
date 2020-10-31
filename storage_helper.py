@@ -1,15 +1,11 @@
 import os
+import subprocess
 import shutil
-from newspaper import Article
 import constant
 
 
-def download_webpage(uuid, url):
-    article = Article(url)
-    article.download()
-    file = open(constant.FILE_DIR + uuid + '.txt', 'w')
-    file.write(article.text)
-    file.close()
+def download_webpage(url):
+    subprocess.run(['clean-mark', url, '-t', 'text'], cwd=constant.FILE_DIR)
 
 
 def delete_directory(path):
