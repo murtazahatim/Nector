@@ -1,5 +1,16 @@
 {% extends 'navbar.html' %}
 
 {% block body %}
+<div class="content_body">
+<form class="check_news_form" action="{{url_for('check_authenticity', uuid = uuid)}}" method="POST">
+    <div class="mdl-textfield mdl-js-textfield">
+        {{template_news_form.hidden_tag()}}
+        {{ template_news_form.url(class_="mdl-textfield__input") }}
+        {{ template_news_form.url.label(class_= "mdl-textfield__label")}}
+    </div>
+    <!-- Accent-colored raised button with ripple -->
+    {{ template_news_form.submit(class_="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent") }}
 
+</form>
+</div>
 {% endblock %}

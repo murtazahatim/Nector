@@ -47,10 +47,8 @@
     </nav>
   </div>
   <main class="mdl-layout__content">
+      {% block body %}
+      {% endblock %}
   </main>
 </div>
-
-{% block body %}
-{% endblock %}
-
 {% endblock %}
