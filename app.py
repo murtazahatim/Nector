@@ -11,7 +11,7 @@ app.config['SECRET_KEY'] = 'SECRET_PROJECT'
 @app.route('/', methods=['GET', 'POST'])
 def display_homepage():
     news_clipping_form = SearchNewsClippingForm()
-    return render_template('index.html', template_news_form=news_clipping_form, uuid=uuid.uuid1())
+    return render_template('index.html', template_news_form=news_clipping_form, uuid=uuid.uuid1(), message=None)
 
 
 @app.route('/check-authenticity/<uuid>', methods=['POST'])
@@ -21,9 +21,15 @@ def check_authenticity(uuid):
         url = news_clipping_form.url.data
         global prediction
         prediction = authenticity_predictor(uuid, url)
-    return redirect(url_for('result', uuid=uuid, _external=True, _scheme='http'))
+        return redirect(url_for('result', uuid=uuid, _external=True, _scheme='http'))
+    else:
+        return render_template('index.html', template_news_form=news_clipping_form, uuid=uuid, message="Please enter a valid url")
 
 
 @app.route('/result/<uuid>/', methods=['GET'])
 def result(uuid):
     return render_template('result.html', result=prediction)
+
+
+if __name__ == "__main__":
+  app.run()

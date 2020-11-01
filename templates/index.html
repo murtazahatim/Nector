@@ -4,6 +4,38 @@
 
     <section class="u-align-center u-clearfix u-image u-shading u-section-1" id="carousel_b19c">
       <div class="u-clearfix u-sheet u-sheet-1">
+        {% if message %}
+        <style>
+           /* The alert message box */
+.alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
+        </style>
+        <div class="alert">
+          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+          {{ message }}
+        </div>
+        {% endif %}
         <h2 class="u-custom-font u-font-playfair-display u-text u-text-1">Always Verify Your Sources</h2>
         <div class="u-align-center u-form u-form-1">
           <form action="{{url_for('check_authenticity', uuid = uuid)}}" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-10 u-inner-form" style="padding: 10px" source="custom" name="form">
