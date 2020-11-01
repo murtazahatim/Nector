@@ -11,7 +11,7 @@ def download_webpage(uuid, url):
     if not file_exists(constant.FILE_DIR + uuid):
         os.mkdir(constant.FILE_DIR + uuid)
 
-    subprocess.run(['clean-mark', url, '-t', 'text'], cwd=constant.FILE_DIR + uuid)
+    subprocess.run([constant.CLEAN_MARK_PATH, url, '-t', 'text'], cwd=constant.FILE_DIR + uuid)
 
 
 def delete_files(files):
