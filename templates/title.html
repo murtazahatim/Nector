@@ -1,14 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<html style="font-size: 16px;">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Always Verify Your Sources">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Nector | Welcome</title>
     <link rel="icon" href="{{ url_for('static', filename='icon-yellow.png') }}" type="image/x-icon">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-yellow.min.css">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-</head>
-<body>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/index.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/supplementary.css') }}" media="screen">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i">
+
+    <meta property="og:title" content="Index Page">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#478ac9">
+    <link rel="canonical" href="index.html">
+    <meta property="og:url" content="index.html">
+  </head>
+<body class="u-body">
 {% block content %}
 {% endblock %}
 </body>

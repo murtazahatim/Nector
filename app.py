@@ -20,9 +20,10 @@ def check_authenticity(uuid):
     if news_clipping_form.validate_on_submit():
         url = news_clipping_form.url.data
         global prediction
-        prediction = authenticity_predictor(url)
+        prediction = authenticity_predictor(uuid, url)
     return redirect(url_for('result', uuid=uuid, _external=True, _scheme='http'))
+
 
 @app.route('/result/<uuid>/', methods=['GET'])
 def result(uuid):
-    return str(prediction)
+    return render_template('result.html', result=prediction)
