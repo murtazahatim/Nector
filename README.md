@@ -6,5 +6,3 @@
 
 
 Nector (or News Detector) is a tool that efficiently and accurately detects fake news using machine learning.
-
-Operational Version can be found here: (http://nector-ai.herokuapp.com) (Site is currently down for maintenance and major bug fixes)
